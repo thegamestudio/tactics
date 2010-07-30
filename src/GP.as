@@ -14,8 +14,9 @@ package
 		[Embed(source = "../assets/items.png")] public static const ITEMS:Class;
 		[Embed(source = "../assets/tiles.png")] public static const TILES:Class;
 		[Embed(source = "../assets/null.png")] public static const NULL:Class;
+		[Embed(source = "../assets/big_art.png")] public static const BIG:Class;
 		
-		public static const TILE_SIZE:uint = 8;
+		public static const TILE_SIZE:uint = 32;
 		
 		public static function GetNeighbors(p:Point):Array
 		{

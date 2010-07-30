@@ -1,5 +1,6 @@
 package  
 {
+	import flash.display.BitmapData;
 	import flash.geom.Point;
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
@@ -53,18 +54,23 @@ package
 				for (j = 0; j < _dim.y; j++)
 				{
 					var im:Image = null, ovr:Image = null;
-					if (_overlay[i][j] != 0) ovr = new Image(GP.ITEMS, new Rectangle(11 * GP.TILE_SIZE, 11 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE));
+					if (_overlay[i][j] != 0)
+					{
+						ovr = new Image(new BitmapData(GP.TILE_SIZE, GP.TILE_SIZE));
+						ovr.color = 0xff0000;
+						ovr.alpha = 0.25;
+					}
 					if (_map[i][j] == 1)
 					{
-						im = new Image(GP.TILES, new Rectangle(8 * GP.TILE_SIZE, 4 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE))
+						im = new Image(GP.BIG, new Rectangle(0 * GP.TILE_SIZE, 1 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE))
 					}
 					else if (_map[i][j] == 2)
 					{
-						im = new Image(GP.TILES, new Rectangle(2 * GP.TILE_SIZE, 6 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE))
+						im = new Image(GP.BIG, new Rectangle(1 * GP.TILE_SIZE, 1 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE))
 					}
 					else
 					{
-						im = new Image(GP.TILES, new Rectangle(2 * GP.TILE_SIZE, 7 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE))
+						im = new Image(GP.BIG, new Rectangle(2 * GP.TILE_SIZE, 1 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE))
 					}
 					im.render(new Point(i * GP.TILE_SIZE, j * GP.TILE_SIZE), FP.camera);
 					if(ovr) ovr.render(new Point(i * GP.TILE_SIZE, j * GP.TILE_SIZE), FP.camera);

@@ -22,7 +22,7 @@
 		/**
 		 * The font size to assign to new Text objects.
 		 */
-		public static var size:uint = 8;
+		public static var size:uint = 16;
 		
 		/**
 		 * Constructor.
@@ -116,7 +116,7 @@
 		// Use this option when compiling with Flex SDK 4
 		// [Embed(source = '04B_03__.TTF', embedAsCFF="false", fontFamily = 'default')]
 		// Use this option when compiling with Flex SDK <4
-		[Embed(source = '04B_03__.TTF', fontFamily = 'default')]
+		[Embed(source = '../../../../assets/OFLGoudyStMTT.ttf', fontFamily = 'default')]
 		/** @private */ private static var _FONT_DEFAULT:Class;
 	}
 }

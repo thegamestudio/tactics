@@ -19,7 +19,7 @@ package
 		private var _loc:Point;
 		public function Cursor() 
 		{
-			graphic = new Image(GP.ITEMS, new Rectangle(11 * GP.TILE_SIZE, 8 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE));
+			graphic = new Image(GP.BIG, new Rectangle(0 * GP.TILE_SIZE, 2 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE));
 			layer = -11;
 			FP.stage.addEventListener(MouseEvent.MOUSE_MOVE, mouseMoveHandler);
 			_loc = new Point;
@@ -40,9 +40,9 @@ package
 			this.x = GP.TILE_SIZE * _loc.x;
 			this.y = GP.TILE_SIZE * _loc.y;
 			GameWorld.t.x = FP.camera.x;
-			GameWorld.t.y = FP.camera.y + FP.screen.height - 9;
+			GameWorld.t.y = FP.camera.y + FP.screen.height - 20;
 			GameWorld.b.x = FP.camera.x;
-			GameWorld.b.y = FP.camera.y + FP.screen.height - 7;
+			GameWorld.b.y = FP.camera.y + FP.screen.height - 16;
 			if (Input.pressed(Key.SPACE) || Input.mousePressed) select();
 			if (!input.equals(new Point)) hover();
 			super.update();
@@ -63,9 +63,9 @@ package
 				var u:Unit = Unit(collide("unit", x, y));
 				if (u is Unit)
 				{
-					if (u.Team == 1) gw.texts.text = "ALLY - ";
-					else gw.texts.text = "ENEMY - ";
-					gw.texts.text += "SPEED " + u.Speed;
+					if (u.Team == 1) gw.texts.text = "Ally—";
+					else gw.texts.text = "Enemy—";
+					gw.texts.text += "Speed " + u.Speed;
 				}
 				else
 				{
@@ -74,15 +74,15 @@ package
 						switch(GameWorld.map.Data[_loc.x][_loc.y])
 						{
 							case 1:
-								gw.texts.text = "FIELD - STANDARD TERRAIN";
+								gw.texts.text = "Field—Standard Terrain";
 								break;
 							
 							case 2:
-								gw.texts.text = "THICKET - DIFFICULT TERRAIN";
+								gw.texts.text = "Rubble—Difficult Terrain";
 								break;
 							
 							case 0:
-								gw.texts.text = "WATER - IMPASSABLE TERRAIN";
+								gw.texts.text = "Water—Impassable Terrain";
 								break;
 								
 							default:

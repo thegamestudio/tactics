@@ -12,8 +12,8 @@
 		
 		public function Main():void 
 		{
-			super(160, 120);
-			FP.screen.scale = 4;
+			super(640, 480);
+			FP.screen.scale = 1;
 			FP.world = new GameWorld;
 		}
 		

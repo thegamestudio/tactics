@@ -28,12 +28,12 @@ package
 		override public function begin():void 
 		{	
 			//Let's throw down a base tile.
-			texts = new Text("TEST", 0, 0, FP.screen.width, 8);
+			texts = new Text("TEST", 0, 0, FP.screen.width, 24);
 			var i:uint, j:uint;
 			var nullSpace:Backdrop = new Backdrop(GP.NULL);
 			nullSpace.scrollX = 0;
 			nullSpace.scrollY = 0;
-			add(new Entity(0,0,nullSpace));
+			//add(new Entity(0,0,nullSpace));
 			map = new Map(50, 50);
 			add(map);
 			add(new Cursor);
@@ -46,9 +46,9 @@ package
 				}
 			}
 			
-			_infoBottom = new Image(new BitmapData(FP.screen.width, 7, false, 0));
-			t = add(new Entity(0, FP.screen.height - 9, texts));
-			b = add(new Entity(0, FP.screen.height - 7, _infoBottom));
+			_infoBottom = new Image(new BitmapData(FP.screen.width, 16, false, 0));
+			t = add(new Entity(0, FP.screen.height - 16, texts));
+			b = add(new Entity(0, FP.screen.height - 16, _infoBottom));
 			Image(b.graphic).alpha = 0.8;
 			t.layer = -31;
 			b.layer = -30;

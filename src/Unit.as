@@ -20,9 +20,10 @@ package
 		public function get Speed():uint { return _speed; };
 		public function Unit(x:Number, y:Number) 
 		{
-			this._character = new Point(Math.floor(Math.random() * 16), Math.floor(Math.random() * 15));
 			this._location = new Point(x, y);
-			this.graphic = new Image(GP.CHARACTERS, new Rectangle(_character.x * GP.TILE_SIZE, _character.y * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE));
+			_team = Math.floor(Math.random() * 2);
+			if (_team == 0) this.graphic = new Image(GP.BIG, new Rectangle(0 * GP.TILE_SIZE, 0 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE));
+			else this.graphic = new Image(GP.BIG, new Rectangle(1 * GP.TILE_SIZE, 0 * GP.TILE_SIZE, GP.TILE_SIZE, GP.TILE_SIZE));
 			this.x = _location.x*GP.TILE_SIZE;
 			this.y = _location.y * GP.TILE_SIZE;
 			type = "unit";
@@ -30,9 +31,7 @@ package
 			width = GP.TILE_SIZE;
 			height = GP.TILE_SIZE;
 			_speed = Math.floor(Math.random() * 6 + 2);
-			_team = Math.floor(Math.random() * 2);
-			if (_team == 0) Image(graphic).color = 0xff2222;
-			else Image(graphic).color = 0x2222ff;
+			
 			
 		}
 		
